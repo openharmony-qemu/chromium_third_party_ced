@@ -1,37 +1,46 @@
-# chromium_third_party_ced
+### Introduction
 
-#### 介绍
-第三方软件ced
+Compact Encoding Detection(CED for short) is a library written in C++ that
+scans given raw bytes and detect the most likely text encoding.
 
-#### 软件架构
-软件架构说明
+Basic usage:
 
+```
+#include "compact_enc_det/compact_enc_det.h"
 
-#### 安装教程
+const char* text = "Input text";
+bool is_reliable;
+int bytes_consumed;
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+Encoding encoding = CompactEncDet::DetectEncoding(
+        text, strlen(text),
+        nullptr, nullptr, nullptr,
+        UNKNOWN_ENCODING,
+        UNKNOWN_LANGUAGE,
+        CompactEncDet::WEB_CORPUS,
+        false,
+        &bytes_consumed,
+        &is_reliable);
 
-#### 使用说明
+```
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+### How to build
 
-#### 参与贡献
+You need [CMake](https://cmake.org/) to build the package. After unzipping
+the source code , run `autogen.sh` to build everything automatically.
+The script also downloads [Google Test](https://github.com/google/googletest)
+framework needed to build the unittest.
 
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+```
+$ cd compact_enc_det
+$ ./autogen.sh
+...
+$ bin/ced_unittest
+```
 
+On Windows, run `cmake .` to download the test framework, and generate
+project files for Visual Studio.
 
-#### 特技
-
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+```
+D:\packages\compact_enc_det> cmake .
+```
