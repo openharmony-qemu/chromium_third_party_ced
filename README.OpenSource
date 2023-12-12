@@ -1,0 +1,11 @@
+[
+    {
+        "Name": "compact_enc_det",
+        "License": "Apache-2.0",
+        "License File": "LICENSE",
+        "Version Number": "ba412eaaacd3186085babcd901679a48863c7dd5",
+        "Owner": "liujixin@huawei.com",
+        "Upstream URL": "https://chromium.googlesource.com/external/github.com/google/compact_enc_det.git@ba412eaaacd3186085babcd901679a48863c7dd5",
+        "Description": "第三方软件ced,紧凑编码检测是一个用 C++ 编写的库，用于扫描给定的原始字节并检测最可能的文本编码。"
+    }
+]
